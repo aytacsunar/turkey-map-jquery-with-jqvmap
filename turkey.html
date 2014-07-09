@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <title>JQVMap - Turkey Map</title>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+    
+    <link href="jqvmap/jqvmap.css" media="screen" rel="stylesheet" type="text/css" />
+    
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
+    <script src="jqvmap/jquery.vmap.js" type="text/javascript"></script>
+    <script src="jqvmap/maps/jquery.vmap.turkey.js" type="text/javascript"></script>
+    
+	<script type="text/javascript">
+		jQuery(document).ready(function() {
+		//Sehir nufuslarina gore renk paleti olusturulmustur. Iptal icin values degerini silmeniz yeterli
+		var sehir_nufus = {"1":"82700","2":"26480","3":"31530","4":"22820","5":"15550","6":"205790","7":"78830","8":"7860","9":"39940","10":"49210","11":"9120","12":"10690","13":"14100","14":"11890","15":"10520","16":"105260","17":"23240","18":"4750","19":"25350","20":"41100","21":"63430","22":"17890","23":"25570","24":"9650","25":"37350","26":"32300","27":"68240","28":"21140","29":"5430","30":"10700","31":"58560","32":"19460","33":"66610","34":"564890","35":"166200","36":"12820","37":"13950","38":"52910","39":"14710","40":"9610","41":"57790","42":"84160","43":"26490","44":"32500","45":"56550","46":"43550","47":"33240","48":"32510","49":"17550","50":"12250","51":"12670","52":"30760","53":"12740","54":"36390","55":"55280","56":"12230","57":"9010","58":"27230","59":"32800","60":"28180","61":"32970","62":"3760","63":"63760","64":"14550","65":"47470","66":"20700","67":"27350","68":"15470","69":"3700","70":"9600","71":"13350","72":"21840","73":"17440","74":"7470","75":"5050","76":"7670","77":"7340","78":"9310","79":"5240","80":"21350","81":"14580"};
+		jQuery('#vmap').vectorMap(
+			{
+				map: 'turkey_tr',
+				backgroundColor: '#a5bfdd',
+				borderColor: '#818181',
+				borderOpacity: 0.25,
+				borderWidth: 1,
+				color: '#f4f3f0',
+				enableZoom: true,
+				hoverColor: '#999999',
+				values: sehir_nufus, //iptal icin yorum icine aliniz! 
+				hoverOpacity: null,
+				scaleColors: ['#FFFFFF', '#FF0000'],
+				selectedColor: '#c9dfaf',
+				selectedRegion: null,
+				showTooltip: true,
+				normalizeFunction: 'polynomial',
+				onRegionClick: function(element, code, region)
+				{
+				var message = 'You clicked "'
+				+ region 
+				+ '" which has the code: '
+				+ code.toUpperCase();
+				alert(message);
+				}
+			});
+		});
+	</script>
+  </head>
+  <body>
+    <div id="vmap" style="width: 500px; height: 300px;"></div>
+  </body>
+</html>
